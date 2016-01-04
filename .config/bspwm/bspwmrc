@@ -1,0 +1,47 @@
+#! /bin/sh
+
+# bsp config
+bspc config border_width        	2
+bspc config window_gap         		12
+bspc config top_padding			20
+bspc config split_ratio         	0.52
+bspc config borderless_monocle  	true
+bspc config gapless_monocle     	true
+bspc config focus_by_distance   	true
+bpsc config focus_follows_pointer	true
+
+bspc monitor -d 1 2 3 4 5 6 7 8
+
+bspc config normal_border_color = 	"#000000"
+bspc config focused_border_color = 	"#000000"
+bspc config presel_border_color = 	"#4A90D9"
+bspc config urgend_border_color = 	"#4A90D9"
+bspc config normal_sticky_border_color = "#000000"
+bspc config focused_sticky_border_color = "#000000"
+
+bspc config external_rules_command = 	~/.config/bspwm/external_rules
+
+# bspc rule -a Gimp desktop=^8 follow=on floating=on
+# bspc rule -a Chromium desktop=^2
+# bspc rule -a mplayer2 floating=on
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+# Bar
+# dzen2 -w '1920' -h '20' -x '0' -y '0' -ta l &
+dzen.sh &
+
+# Keybinding
+sxhkd &
+
+#Composite Manager
+compton -b --config ~/.config/compton/compton.conf &
+
+# Hintergrundbild
+feh --randomize --bg-fill ~/Bilder/Wallpaper/*.jpg &
+
+# Mousecursor von X auf Pfeil
+xsetroot -cursor_name left_ptr &
+
+# Taskleiste
+# panel bar &
